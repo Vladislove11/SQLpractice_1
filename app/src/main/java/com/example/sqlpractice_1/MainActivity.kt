@@ -1,6 +1,8 @@
 package com.example.sqlpractice_1
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -71,5 +73,20 @@ class MainActivity : AppCompatActivity() {
         weightProductET = findViewById(R.id.weightProductET)
         saveBTN = findViewById(R.id.saveBTN)
         listViewLW = findViewById(R.id.listViewLW)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.item_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.exitMenuMain ->{
+                finishAffinity()
+                Toast.makeText(this,"Приложение завершено", Toast.LENGTH_LONG).show()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
